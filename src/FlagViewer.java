@@ -14,9 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
 public class FlagViewer extends JFrame {
+    
     private static final long serialVersionUID = 1L;
     
-    public FlagViewer(){
+    public FlagViewer() {
         
     }
 }
