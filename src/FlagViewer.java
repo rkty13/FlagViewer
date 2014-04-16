@@ -16,6 +16,9 @@ import javax.swing.SwingConstants;
 public class FlagViewer extends JFrame {
     
     private static final long serialVersionUID = 1L;
+    private static final JButton aboutButton, adminButton;
+    private static final JTextField searchField;
+    private static JLabel total, flagName;
     
     public FlagViewer() {
         super("Flag Viewer");
