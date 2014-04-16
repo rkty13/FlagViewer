@@ -18,6 +18,7 @@ public class FlagViewer extends JFrame {
     private static final long serialVersionUID = 1L;
     
     public FlagViewer() {
+        super("Flag Viewer");
         
     }
 }
