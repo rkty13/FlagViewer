@@ -16,73 +16,90 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
-import javax.swing.SwingConstants;
+
 
 public class FlagViewer extends JFrame {
-    
+
     private static final long serialVersionUID = 1L;
     private JLabel FlagName, FlagTotal;
     private final JButton aboutButton, searchDropButton;
     private final JTextField searchField;
-    private JList<String>flagList;
+    private JList<String> flagList;
     private JComboBox box;
-    
-    
+
     public FlagViewer() {
         super("Flag Viewer");
         searchField = new JTextField(10);
+
+        // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
+        //Call method getFlagName in order to assign "FlagName" a value
+        // Populate ArrayList of Flags
+        
+        
         
         aboutButton = new JButton("About");
-        aboutButton.addActionListener(new ActionListener(){
+        aboutButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent ae){
-                
+            public void actionPerformed(final ActionEvent ae) {
+                // Method for the About Message to Open
             }
         });
-        
-        
+
         searchDropButton = new JButton();
-        //Insert Image into button
-        try{
-            Image img = ImageIO.read(getClass().getResource("resources/arrowButton.jpg"));
-            searchDropButton.setIcon(new ImageIcon(img));
-        } catch(IOException ioe){
+        try {
+            Image img = ImageIO.read(getClass().getResource(
+                    "resources/arrowButton.jpg"));
+            searchDropButton.setIcon(new ImageIcon(img)); // Insert Image into
+                                                          // button
+        } catch (IOException ioe) {
         }
-        
-        searchDropButton.addActionListener(new ActionListener(){
+
+        searchDropButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent ae){
-                //Method to list the items in the ComboBox 
+            public void actionPerformed(final ActionEvent ae) {
+                // Method to list the items in the ComboBox
             }
         });
         
-        
-        
-        //Populate ArrayList of Flags
         JScrollPane scrollPane = new JScrollPane(flagList);
-        
+
         final JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(2,2));
-        
+        inputPanel.setLayout(new GridLayout(2, 2));
+
         inputPanel.add(new JLabel("Total:"));
         inputPanel.add(FlagTotal);
-        
+
         inputPanel.add(new JLabel("Search:"));
-        inputPanel.add(FlagName);
+        inputPanel.add(searchField);
+        
+        final JPanel listOfFlags = new JPanel();
+        listOfFlags.add(scrollPane);
         
         final JPanel aboutButtonPanel = new JPanel();
-        
+        aboutButtonPanel.add(aboutButton);
+
+        final JPanel searchButtonPanel = new JPanel();
+        searchButtonPanel.add(searchDropButton);
+
+
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
-        
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
-        
+
+    }
+    
+    public static void getFlagName(){
+        //Assign variable "FlagName" a string value equal to file name
+    }
+
+    public static void main(String[] args) {
+        new FlagViewer();
     }
 }

@@ -1,0 +1,9 @@
+1.Implement JComboBox	
+    a.Auto-Complete Option
+    	1.Key-Listener?
+
+2.Methods: 
+	a.getFlagName
+	b.About Message pop-up
+	c.searchDropButton
+	
