@@ -30,6 +30,11 @@ public class FlagViewer extends JFrame {
         final JPanel inputPanel = new JPanel();
         
         
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setVisible(true);
         
     }
 }
