@@ -34,7 +34,7 @@ public class FlagViewer extends JFrame {
         aboutButton = new JButton("About");
         //Code for About Button Here
         
-        
+        //Populate ArrayList of Flags
         JScrollPane scrollPane = new JScrollPane(flagList);
         
         final JPanel inputPanel = new JPanel();
