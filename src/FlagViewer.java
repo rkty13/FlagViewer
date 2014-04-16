@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -16,9 +17,11 @@ import javax.swing.SwingConstants;
 public class FlagViewer extends JFrame {
     
     private static final long serialVersionUID = 1L;
-    private  final JButton aboutButton;
-    private  final JTextField searchField;
-    private  final JLabel total, flagName;
+    private JLabel flagName, flagTotal;
+    private final JButton aboutButton;
+    private final JTextField searchField;
+    private JComboBox box;
+    
     
     public FlagViewer() {
         super("Flag Viewer");
