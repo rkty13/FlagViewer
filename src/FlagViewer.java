@@ -16,12 +16,20 @@ import javax.swing.SwingConstants;
 public class FlagViewer extends JFrame {
     
     private static final long serialVersionUID = 1L;
-    private static final JButton aboutButton, adminButton;
-    private static final JTextField searchField;
-    private static JLabel total, flagName;
+    private  final JButton aboutButton;
+    private  final JTextField searchField;
+    private  final JLabel total, flagName;
     
     public FlagViewer() {
         super("Flag Viewer");
+        searchField = new JTextField(10);
+        
+        aboutButton = new JButton("About");
+        //Code for About Button Here
+        
+        final JPanel inputPanel = new JPanel();
+        
+        
         
     }
 }
