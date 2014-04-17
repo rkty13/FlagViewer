@@ -21,9 +21,9 @@ import javax.swing.JFrame;
 
 
 public class FlagViewer extends JFrame {
-
+    private int intFlagTotal;
     private static final long serialVersionUID = 1L;
-    private JLabel FlagName, FlagTotal;
+    private JLabel FlagName, TotalFlags;
     private final JButton aboutButton, searchDropButton;
     private final JTextField searchField;
     private JList<String> flagList;
@@ -69,7 +69,8 @@ public class FlagViewer extends JFrame {
         inputPanel.setLayout(new GridLayout(2, 2));
 
         inputPanel.add(new JLabel("Total:"));
-        inputPanel.add(FlagTotal);
+        TotalFlags.setText(String.valueOf(intFlagTotal));
+        inputPanel.add(TotalFlags);
 
         inputPanel.add(new JLabel("Search:"));
         inputPanel.add(searchField);
@@ -86,7 +87,11 @@ public class FlagViewer extends JFrame {
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
-
+        mainPanel.add(inputPanel);
+        mainPanel.add(listOfFlags);
+        mainPanel.add(aboutButtonPanel);
+        mainPanel.add(searchButtonPanel);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
