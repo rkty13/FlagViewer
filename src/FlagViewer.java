@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -21,7 +22,7 @@ import javax.swing.JFrame;
 
 
 public class FlagViewer extends JFrame {
-    private int intFlagTotal;
+    private int intFlagTotal = 10;
     private static final long serialVersionUID = 1L;
     private JLabel FlagName, TotalFlags;
     private final JButton aboutButton, searchDropButton;
@@ -69,8 +70,8 @@ public class FlagViewer extends JFrame {
         inputPanel.setLayout(new GridLayout(2, 2));
 
         inputPanel.add(new JLabel("Total:"));
-        TotalFlags.setText(String.valueOf(intFlagTotal));
-        inputPanel.add(TotalFlags);
+        inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
+        //inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
 
         inputPanel.add(new JLabel("Search:"));
         inputPanel.add(searchField);
@@ -82,15 +83,16 @@ public class FlagViewer extends JFrame {
         aboutButtonPanel.add(aboutButton);
 
         final JPanel searchButtonPanel = new JPanel();
+        searchDropButton.setPreferredSize(new Dimension(40,40));
         searchButtonPanel.add(searchDropButton);
 
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(inputPanel);
-        mainPanel.add(listOfFlags);
-        mainPanel.add(aboutButtonPanel);
-        mainPanel.add(searchButtonPanel);
+        mainPanel.add(inputPanel, BorderLayout.CENTER);
+        mainPanel.add(listOfFlags, BorderLayout.SOUTH);
+        mainPanel.add(aboutButtonPanel, BorderLayout.EAST);
+        mainPanel.add(searchButtonPanel, BorderLayout.WEST);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
