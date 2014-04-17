@@ -25,7 +25,7 @@ import javax.swing.JFrame;
 public class FlagViewer extends JFrame {
     private int intFlagTotal;
     private static final long serialVersionUID = 1L;
-    private JLabel FlagName;
+    private String FlagName;
     private final JButton aboutButton, searchDropButton;
     private final JTextField searchField;
     private JList<String> flagList;
@@ -38,10 +38,20 @@ public class FlagViewer extends JFrame {
         // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
         File f = new File("C:/Users/Eric/Documents/GitHub/FlagViewer/flags");
         intFlagTotal = f.listFiles().length - 1;
-
+        
         //Call method getFlagName in order to assign "FlagName" a value
-        getFlagName();
         // Populate ArrayList of Flags
+        
+        
+        box = new JComboBox();
+        box.setEditable(true);
+        box.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                JComboBox comboBox = (JComboBox)ae.getSource();
+                Object select = comboBox.getSelectedItem();
+                //if select = flag, then display image of flag and its NAME
+            }
+        });
         
         aboutButton = new JButton("About");
         aboutButton.addActionListener(new ActionListener() {
@@ -70,13 +80,16 @@ public class FlagViewer extends JFrame {
         JScrollPane scrollPane = new JScrollPane(flagList);
 
         final JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(2, 2));
+        inputPanel.setLayout(new GridLayout(2, 3));
 
-        inputPanel.add(new JLabel("Total:"));
+        inputPanel.add(new JLabel("Total Flags:"));
         inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
-
+        inputPanel.add(new JLabel(""));
+        searchDropButton.setPreferredSize(new Dimension(40,40));
         inputPanel.add(new JLabel("Search:"));
         inputPanel.add(searchField);
+        
+        inputPanel.add(searchDropButton);
         
         final JPanel listOfFlags = new JPanel();
         listOfFlags.add(scrollPane);
@@ -84,26 +97,22 @@ public class FlagViewer extends JFrame {
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
 
-        final JPanel searchButtonPanel = new JPanel();
-        searchDropButton.setPreferredSize(new Dimension(40,40));
-        searchButtonPanel.add(searchDropButton);
+        //final JPanel searchButtonPanel = new JPanel();
+        
+        //searchButtonPanel.add(searchDropButton);
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(inputPanel, BorderLayout.CENTER);
         mainPanel.add(listOfFlags, BorderLayout.SOUTH);
         mainPanel.add(aboutButtonPanel, BorderLayout.AFTER_LAST_LINE);
-        mainPanel.add(searchButtonPanel, BorderLayout.EAST);
+       // mainPanel.add(searchButtonPanel, BorderLayout.EAST);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
-    }
-    
-    public static void getFlagName(){
-        //Assign variable "FlagName" a string value equal to file name
     }
     
     public static void aboutMessage(){
