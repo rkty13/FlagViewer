@@ -22,7 +22,7 @@ import javax.swing.JFrame;
 
 
 public class FlagViewer extends JFrame {
-    private int intFlagTotal = 10;
+    private int intFlagTotal;
     private static final long serialVersionUID = 1L;
     private JLabel FlagName;
     private final JButton aboutButton, searchDropButton;
@@ -71,7 +71,6 @@ public class FlagViewer extends JFrame {
 
         inputPanel.add(new JLabel("Total:"));
         inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
-        //inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
 
         inputPanel.add(new JLabel("Search:"));
         inputPanel.add(searchField);
