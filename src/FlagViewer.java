@@ -51,7 +51,7 @@ public class FlagViewer extends JFrame {
         searchDropButton = new JButton();
         try {
             Image img = ImageIO.read(getClass().getResource(
-                    "resources/smallArrowButton.jpg"));
+                    "resources/keepTrying.jpg"));
             searchDropButton.setIcon(new ImageIcon(img)); // Insert Image into
                                                           // button
         } catch (IOException ioe) {
@@ -82,7 +82,7 @@ public class FlagViewer extends JFrame {
         aboutButtonPanel.add(aboutButton);
 
         final JPanel searchButtonPanel = new JPanel();
-        searchDropButton.setPreferredSize(new Dimension(175,175));
+        searchDropButton.setPreferredSize(new Dimension(40,40));
         searchButtonPanel.add(searchDropButton);
 
 
