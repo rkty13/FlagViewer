@@ -36,6 +36,7 @@ public class FlagViewer extends JFrame {
 
         // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
         //Call method getFlagName in order to assign "FlagName" a value
+        getFlagName();
         // Populate ArrayList of Flags
         
         aboutButton = new JButton("About");
