@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -35,6 +36,9 @@ public class FlagViewer extends JFrame {
         searchField = new JTextField(10);
 
         // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
+        File f = new File("C:/Users/Eric/Documents/GitHub/FlagViewer/flags");
+        intFlagTotal = f.listFiles().length - 1;
+
         //Call method getFlagName in order to assign "FlagName" a value
         getFlagName();
         // Populate ArrayList of Flags
@@ -84,24 +88,26 @@ public class FlagViewer extends JFrame {
         searchDropButton.setPreferredSize(new Dimension(40,40));
         searchButtonPanel.add(searchDropButton);
 
-
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(inputPanel, BorderLayout.CENTER);
         mainPanel.add(listOfFlags, BorderLayout.SOUTH);
-        mainPanel.add(aboutButtonPanel, BorderLayout.EAST);
-        mainPanel.add(searchButtonPanel, BorderLayout.WEST);
+        mainPanel.add(aboutButtonPanel, BorderLayout.AFTER_LAST_LINE);
+        mainPanel.add(searchButtonPanel, BorderLayout.EAST);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
-
     }
     
     public static void getFlagName(){
         //Assign variable "FlagName" a string value equal to file name
+    }
+    
+    public static void aboutMessage(){
+        //Pop-Up message displaying about information.
     }
 
     public static void main(String[] args) {
