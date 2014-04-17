@@ -6,4 +6,6 @@
 	a.getFlagName
 	b.About Message pop-up
 	c.searchDropButton
+3.Fix searchDropButton
+	a.Shrink Image to correctly scale button down to smaller size
 	
