@@ -38,8 +38,6 @@ public class FlagViewer extends JFrame {
         //Call method getFlagName in order to assign "FlagName" a value
         // Populate ArrayList of Flags
         
-        
-        
         aboutButton = new JButton("About");
         aboutButton.addActionListener(new ActionListener() {
             @Override
