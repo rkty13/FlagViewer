@@ -24,7 +24,7 @@ import javax.swing.JFrame;
 public class FlagViewer extends JFrame {
     private int intFlagTotal = 10;
     private static final long serialVersionUID = 1L;
-    private JLabel FlagName, TotalFlags;
+    private JLabel FlagName;
     private final JButton aboutButton, searchDropButton;
     private final JTextField searchField;
     private JList<String> flagList;
