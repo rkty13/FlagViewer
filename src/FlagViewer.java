@@ -121,6 +121,7 @@ public class FlagViewer extends JFrame {
         if (flags != null) {
             for (File flag : flags) {
                 String flagFile = flag.getName();
+                System.out.println(flagFile);
                 if (flagFile.contains(".")) {
                     String[] seperated = flagFile.split(".");
                     flagFile = seperated[0];
