@@ -38,7 +38,7 @@ public class FlagViewer extends JFrame {
         intFlagTotal = f.list().length - 1;
         
         flagList = new JList<String>(populateFlagList(f));
-        
+        //ListSelectionListener
         box = new JComboBox();
         box.setEditable(true);
         box.addActionListener(new ActionListener(){
