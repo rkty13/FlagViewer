@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -7,7 +6,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
@@ -38,11 +36,8 @@ public class FlagViewer extends JFrame {
         searchField = new JTextField(10);
 
         // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
-        File f = new File("c:/users/eric/documents/GitHub/FlagViewer/src/resources/flags");
-        intFlagTotal = f.listFiles().length - 1;
-        
-        //Call method getFlagName in order to assign "FlagName" a value
-        // Populate ArrayList of Flags
+        File f = new File("resources/flags");
+        intFlagTotal = f.list().length - 1;
         
         flagList = new JList<String>(populateFlagList(f));
         
