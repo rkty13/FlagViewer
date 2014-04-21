@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
@@ -121,15 +122,13 @@ public class FlagViewer extends JFrame {
         if (flags != null) {
             for (File flag : flags) {
                 String flagFile = flag.getName();
-                System.out.println(flagFile);
                 if (flagFile.contains(".")) {
-                    String[] seperated = flagFile.split(".");
+                    String[] seperated = flagFile.split("\\.");
                     flagFile = seperated[0];
                 }
                 if (flagFile.contains("-")) {
-                    flagFile.replaceAll("-", " ");
+                    flagFile = flagFile.replaceAll("-", " ");
                 }
-                System.out.println(flagFile);
                 listModel.addElement(flagFile);
             }
         }
