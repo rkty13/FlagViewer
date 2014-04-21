@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -41,6 +42,10 @@ public class FlagViewer extends JFrame {
         
         //Call method getFlagName in order to assign "FlagName" a value
         // Populate ArrayList of Flags
+        
+        flagList = new JList<String>();
+        
+        populateFlagList(f);
         
         box = new JComboBox();
         box.setEditable(true);
@@ -111,11 +116,17 @@ public class FlagViewer extends JFrame {
         setVisible(true);
     }
     
-    public static void populateFlagList(File f) {
+    public DefaultListModel<String> populateFlagList(File f) {
+        DefaultListModel<String> listModel = new DefaultListModel<String>();
         File[] flags = f.listFiles();
         if (flags != null) {
             for (File flag : flags) {
-                FlagName = flag.getName();
+                String flagFile = flag.getName();
+                if (flagFile.contains(".")) {
+                    String[] seperated = flagFile.split(".");
+                    flagFile = seperated[0];
+                }
+                
             }
         }
     }
