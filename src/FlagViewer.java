@@ -97,16 +97,12 @@ public class FlagViewer extends JFrame {
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
 
-        //final JPanel searchButtonPanel = new JPanel();
-        
-        //searchButtonPanel.add(searchDropButton);
-
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(inputPanel, BorderLayout.CENTER);
         mainPanel.add(listOfFlags, BorderLayout.SOUTH);
         mainPanel.add(aboutButtonPanel, BorderLayout.AFTER_LAST_LINE);
-       // mainPanel.add(searchButtonPanel, BorderLayout.EAST);
+       
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
