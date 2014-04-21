@@ -20,7 +20,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
 
-
 public class FlagViewer extends JFrame {
     private int intFlagTotal;
     private static final long serialVersionUID = 1L;
