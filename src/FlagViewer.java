@@ -25,7 +25,7 @@ import javax.swing.JFrame;
 public class FlagViewer extends JFrame {
     private int intFlagTotal;
     private static final long serialVersionUID = 1L;
-    private String FlagName;
+    private static String FlagName;
     private final JButton aboutButton, searchDropButton;
     private final JTextField searchField;
     private JList<String> flagList;
@@ -118,7 +118,7 @@ public class FlagViewer extends JFrame {
         File[] flags = f.listFiles();
         if (flags != null) {
             for (File flag : flags) {
-                String flagName = flag.getName();
+                FlagName = flag.getName();
             }
         }
     }
