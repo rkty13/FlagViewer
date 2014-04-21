@@ -42,6 +42,9 @@ public class FlagViewer extends JFrame {
         //Call method getFlagName in order to assign "FlagName" a value
         // Populate ArrayList of Flags
         
+        flagList = new JList<String>();
+        
+        populateFlagList(f);
         
         box = new JComboBox();
         box.setEditable(true);
@@ -109,6 +112,15 @@ public class FlagViewer extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+    }
+    
+    public static void populateFlagList(File f) {
+        File[] flags = f.listFiles();
+        if (flags != null) {
+            for (File flag : flags) {
+                String flagName = flag.getName();
+            }
+        }
     }
     
     public static void aboutMessage(){
