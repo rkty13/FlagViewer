@@ -42,10 +42,6 @@ public class FlagViewer extends JFrame {
         //Call method getFlagName in order to assign "FlagName" a value
         // Populate ArrayList of Flags
         
-        flagList = new JList<String>();
-        
-        populateFlagList(f);
-        
         box = new JComboBox();
         box.setEditable(true);
         box.addActionListener(new ActionListener(){
