@@ -43,9 +43,7 @@ public class FlagViewer extends JFrame {
         //Call method getFlagName in order to assign "FlagName" a value
         // Populate ArrayList of Flags
         
-        flagList = new JList<String>();
-        
-        populateFlagList(f);
+        flagList = new JList<String>(populateFlagList(f));
         
         box = new JComboBox();
         box.setEditable(true);
@@ -126,9 +124,14 @@ public class FlagViewer extends JFrame {
                     String[] seperated = flagFile.split(".");
                     flagFile = seperated[0];
                 }
-                
+                if (flagFile.contains("-")) {
+                    flagFile.replaceAll("-", " ");
+                }
+                System.out.println(flagFile);
+                listModel.addElement(flagFile);
             }
         }
+        return listModel;
     }
     
     public static void aboutMessage(){
