@@ -27,7 +27,7 @@ public class FlagViewer extends JFrame {
     private int intFlagTotal;
     private static final long serialVersionUID = 1L;
     private static String FlagName;
-    private final JButton aboutButton, searchDropButton;
+    private final JButton aboutButton; //, searchDropButton;
     private final JTextField searchField;
     private JList<String> flagList;
     private JComboBox box;
@@ -63,7 +63,7 @@ public class FlagViewer extends JFrame {
                 // Method for the About Message to Open
             }
         });
-
+        /*
         searchDropButton = new JButton();
         try {
             Image img = ImageIO.read(getClass().getResource(
@@ -79,20 +79,21 @@ public class FlagViewer extends JFrame {
                 // Method to list the items in the ComboBox
             }
         });
+        */
         
         JScrollPane scrollPane = new JScrollPane(flagList);
 
         final JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(2, 3));
+        inputPanel.setLayout(new GridLayout(2, 2));
 
         inputPanel.add(new JLabel("Total Flags:"));
         inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
-        inputPanel.add(new JLabel(""));
-        searchDropButton.setPreferredSize(new Dimension(40,40));
+        //inputPanel.add(new JLabel(""));
+        //searchDropButton.setPreferredSize(new Dimension(40,40));
         inputPanel.add(new JLabel("Search:"));
         inputPanel.add(searchField);
         
-        inputPanel.add(searchDropButton);
+        //inputPanel.add(searchDropButton);
         
         final JPanel listOfFlags = new JPanel();
         listOfFlags.add(scrollPane);
