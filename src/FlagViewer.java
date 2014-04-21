@@ -36,7 +36,7 @@ public class FlagViewer extends JFrame {
         searchField = new JTextField(10);
 
         // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
-        File f = new File("resources", "flags");
+        File f = new File("c:/users/eric/documents/GitHub/FlagViewer/src/resources/flags");
         intFlagTotal = f.listFiles().length - 1;
         
         //Call method getFlagName in order to assign "FlagName" a value
