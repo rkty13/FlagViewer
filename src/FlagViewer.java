@@ -48,6 +48,7 @@ public class FlagViewer extends JFrame {
             public void actionPerformed(ActionEvent ae){
                 JComboBox comboBox = (JComboBox)ae.getSource();
                 Object select = comboBox.getSelectedItem();
+                FlagName = select.toString();
                 //if select = flag, then display image of flag and its NAME
             }
         });
