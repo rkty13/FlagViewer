@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
@@ -26,7 +27,7 @@ public class FlagViewer extends JFrame {
     private static final long serialVersionUID = 1L;
     private static String FlagName;
     private final JButton aboutButton; // , searchDropButton;
-    private JList<String> flagList;
+    private ArrayList<String> flagList;
     private JComboBox box;
 
     public FlagViewer() {
@@ -37,7 +38,7 @@ public class FlagViewer extends JFrame {
 
         // THIS ISNT RIGHT. WE CAN ONLY POPULATE A COMBOBOX WITH AN ARRAY, NOT
         // JLIST
-        flagList = new JList<String>(populateFlagList(f)); // MUST CHANGE
+        flagList = new ArrayList<String>(populateFlagList(f)); // MUST CHANGE
 
         // ListSelectionListener
         box = new JComboBox();
@@ -115,8 +116,8 @@ public class FlagViewer extends JFrame {
         setVisible(true);
     }
 
-    public DefaultListModel<String> populateFlagList(File f) {
-        DefaultListModel<String> listModel = new DefaultListModel<String>();
+    public ArrayList<String> populateFlagList(File f) {
+        ArrayList<String> searchList = new ArrayList<String>();
         File[] flags = f.listFiles();
         if (flags != null) {
             for (File flag : flags) {
@@ -128,10 +129,10 @@ public class FlagViewer extends JFrame {
                 if (flagFile.contains("-")) {
                     flagFile = flagFile.replaceAll("-", " ");
                 }
-                listModel.addElement(flagFile);
+                searchList.add(flagFile);
             }
         }
-        return listModel;
+        return searchList;
     }
 
     public static void main(String[] args) {
