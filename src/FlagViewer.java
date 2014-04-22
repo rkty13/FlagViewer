@@ -51,7 +51,7 @@ public class FlagViewer extends JFrame {
                 if(FlagName == null){
                     FlagName = "";
                 }
-                flagNameLabel.setText(FlagName);
+                flagNameLabel.setText(searchFlagList(FlagName));
                 ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName.toLowerCase()));
                 flagLabel.setIcon(flagImage);
             }
@@ -146,14 +146,14 @@ public class FlagViewer extends JFrame {
         return searchList;
     }
     
-    public int searchFlagList(String flagName) {
+    public String searchFlagList(String flagName) {
         for (int i = 0; i < flagList.size(); i++) {
             String compare = flagList.get(i);
             if (flagName.equalsIgnoreCase(compare)) {
-                return i;
+                return compare;
             }
         }
-        return -1;
+        return null;
     }
 
     public static void main(String[] args) {
