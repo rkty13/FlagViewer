@@ -34,8 +34,10 @@ public class FlagViewer extends JFrame {
 
         // THIS ISNT RIGHT. WE CAN ONLY POPULATE A COMBOBOX WITH AN ARRAY, NOT
         // JLIST
-        flagList = new ArrayList<String>(populateFlagList(f)); // MUST CHANGE
+        
+        linkNametoFile = new HashMap<String, String>();
 
+        flagList = new ArrayList<String>(populateFlagList(f)); // MUST CHANGE
         // ListSelectionListener
         
         box = new JComboBox(flagList.toArray());
@@ -126,7 +128,7 @@ public class FlagViewer extends JFrame {
         if (flags != null) {
             for (File flag : flags) {
                 String flagFile = flag.getName();
-                String origin = flagFile;
+                String origin = flag.getName();
                 if (flagFile.contains(".")) {
                     String[] seperated = flagFile.split("\\.");
                     flagFile = seperated[0];
