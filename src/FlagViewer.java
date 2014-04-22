@@ -52,8 +52,7 @@ public class FlagViewer extends JFrame {
                     FlagName = "";
                 }
                 flagNameLabel.setText(FlagName);
-                FlagName.toLowerCase();
-                ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName));
+                ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName.toLowerCase()));
                 flagLabel.setIcon(flagImage);
             }
         });
