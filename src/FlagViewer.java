@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ public class FlagViewer extends JFrame {
     private final JButton aboutButton; // , searchDropButton;
     private ArrayList<String> flagList;
     private JComboBox box;
+    private HashMap<String, String> linkNametoFile;
 
     public FlagViewer() {
         super("Flag Viewer");
@@ -124,6 +126,7 @@ public class FlagViewer extends JFrame {
         if (flags != null) {
             for (File flag : flags) {
                 String flagFile = flag.getName();
+                String origin = flagFile;
                 if (flagFile.contains(".")) {
                     String[] seperated = flagFile.split("\\.");
                     flagFile = seperated[0];
@@ -132,6 +135,7 @@ public class FlagViewer extends JFrame {
                     flagFile = flagFile.replaceAll("-", " ");
                 }
                 searchList.add(flagFile);
+                linkNametoFile.put(flagFile, origin);
             }
         }
         return searchList;
