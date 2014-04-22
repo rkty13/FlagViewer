@@ -110,7 +110,7 @@ public class FlagViewer extends JFrame {
         mainPanel.add(flagImagePanel, BorderLayout.WEST);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
+        setSize(500, 300);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
