@@ -92,12 +92,11 @@ public class FlagViewer extends JFrame {
         final JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BorderLayout());
 
-        inputPanel.add(new JLabel("Total Flags:"));
-        inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
+        inputPanel.add(new JLabel("Total Flags: " + Integer.toString(intFlagTotal)), BorderLayout.PAGE_START);
         // inputPanel.add(new JLabel(""));
         // searchDropButton.setPreferredSize(new Dimension(40,40));
-        inputPanel.add(new JLabel("Search:"));
-        inputPanel.add(box);
+        inputPanel.add(new JLabel("Search:"), BorderLayout.CENTER);
+        inputPanel.add(box, BorderLayout.PAGE_END);
 
         // inputPanel.add(searchDropButton);
 
