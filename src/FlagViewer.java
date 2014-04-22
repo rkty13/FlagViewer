@@ -41,7 +41,7 @@ public class FlagViewer extends JFrame {
         flagList = new ArrayList<String>(populateFlagList(f)); // MUST CHANGE
 
         // ListSelectionListener
-        box = new JComboBox();
+        box = new JComboBox(flagList.toArray());
         box.setEditable(true);
         
         //add array list to comboBox
@@ -128,6 +128,7 @@ public class FlagViewer extends JFrame {
 
     public ArrayList<String> populateFlagList(File f) {
         ArrayList<String> searchList = new ArrayList<String>();
+        searchList.add("");
         File[] flags = f.listFiles();
         if (flags != null) {
             for (File flag : flags) {
