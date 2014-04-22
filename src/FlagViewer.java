@@ -25,15 +25,16 @@ public class FlagViewer extends JFrame {
     private ArrayList<String> flagList;
     private JComboBox box;
     private HashMap<String, String> linkNametoFile;
-    private JLabel flagLabel;
+    private JLabel flagLabel, flagNameLabel;
     
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public FlagViewer() {
         super("Flag Viewer");
 
         File f = new File("resources/flags");
         intFlagTotal = f.list().length - 1;
         flagLabel = new JLabel();
-        
+        flagNameLabel = new JLabel();
         linkNametoFile = new HashMap<String, String>();
 
         flagList = new ArrayList<String>(populateFlagList(f)); // MUST CHANGE
@@ -46,7 +47,12 @@ public class FlagViewer extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 JComboBox comboBox = (JComboBox) ae.getSource();
                 Object select = comboBox.getSelectedItem();
-                FlagName = select.toString().toLowerCase();
+                FlagName = select.toString();
+                if(FlagName == null){
+                    FlagName = "";
+                }
+                flagNameLabel.setText(FlagName);
+                FlagName.toLowerCase();
                 ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName));
                 flagLabel.setIcon(flagImage);
             }
@@ -99,13 +105,12 @@ public class FlagViewer extends JFrame {
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
         
-        if(FlagName == null){
-            FlagName = "";
-        }
+        
         final JPanel flagImagePanel = new JPanel();
         flagImagePanel.setLayout(new BorderLayout());
-        flagImagePanel.add(new JLabel ("Name: " + FlagName), BorderLayout.NORTH);
+        flagImagePanel.add(flagNameLabel, BorderLayout.NORTH);
         flagImagePanel.add(flagLabel, BorderLayout.CENTER);
+        flagImagePanel.setPreferredSize(new Dimension(150,150));
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
