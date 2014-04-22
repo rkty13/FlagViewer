@@ -46,7 +46,7 @@ public class FlagViewer extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 JComboBox comboBox = (JComboBox) ae.getSource();
                 Object select = comboBox.getSelectedItem();
-                FlagName = select.toString();
+                FlagName = select.toString().toLowerCase();
                 ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName));
                 flagLabel.setIcon(flagImage);
             }
@@ -100,17 +100,19 @@ public class FlagViewer extends JFrame {
         aboutButtonPanel.add(aboutButton);
         
         final JPanel flagImagePanel = new JPanel();
-        flagImagePanel.add(new JLabel(FlagName));
-        flagImagePanel.add(flagLabel);
+        flagImagePanel.setLayout(new BorderLayout());
+        flagImagePanel.add(new JLabel ("Name: "+FlagName));
+        flagImagePanel.add(flagLabel, BorderLayout.CENTER);
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(inputPanel, BorderLayout.CENTER);
-        mainPanel.add(aboutButtonPanel, BorderLayout.AFTER_LAST_LINE);
         mainPanel.add(flagImagePanel, BorderLayout.WEST);
+        mainPanel.add(inputPanel, BorderLayout.EAST);
+        mainPanel.add(aboutButtonPanel, BorderLayout.SOUTH);
+        
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 300);
+        pack();
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -122,7 +124,7 @@ public class FlagViewer extends JFrame {
         File[] flags = f.listFiles();
         if (flags != null) {
             for (File flag : flags) {
-                String flagFile = flag.getName().toLowerCase();
+                String flagFile = flag.getName();
                 String origin = flag.getName();
                 if (flagFile.contains(".")) {
                     String[] seperated = flagFile.split("\\.");
@@ -132,7 +134,7 @@ public class FlagViewer extends JFrame {
                     flagFile = flagFile.replaceAll("-", " ");
                 }
                 searchList.add(flagFile);
-                linkNametoFile.put(flagFile, origin);
+                linkNametoFile.put(flagFile.toLowerCase(), origin);
             }
         }
         return searchList;
