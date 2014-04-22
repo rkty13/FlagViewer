@@ -106,8 +106,8 @@ public class FlagViewer extends JFrame {
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(flagImagePanel, BorderLayout.WEST);
-        mainPanel.add(inputPanel, BorderLayout.EAST);
+        mainPanel.add(flagImagePanel, BorderLayout.LINE_START);
+        mainPanel.add(inputPanel, BorderLayout.CENTER);
         mainPanel.add(aboutButtonPanel, BorderLayout.SOUTH);
         
 
