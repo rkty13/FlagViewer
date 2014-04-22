@@ -75,7 +75,6 @@ public class FlagViewer extends JFrame {
         });
         */
         
-        JScrollPane scrollPane = new JScrollPane(flagList);
 
         final JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(2, 2));
@@ -89,8 +88,6 @@ public class FlagViewer extends JFrame {
         
         //inputPanel.add(searchDropButton);
         
-        final JPanel listOfFlags = new JPanel();
-        listOfFlags.add(scrollPane);
         
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
@@ -98,7 +95,6 @@ public class FlagViewer extends JFrame {
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(inputPanel, BorderLayout.CENTER);
-        mainPanel.add(listOfFlags, BorderLayout.SOUTH);
         mainPanel.add(aboutButtonPanel, BorderLayout.AFTER_LAST_LINE);
        
         
