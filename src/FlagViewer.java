@@ -25,15 +25,14 @@ public class FlagViewer extends JFrame {
     private ArrayList<String> flagList;
     private JComboBox box;
     private HashMap<String, String> linkNametoFile;
-
+    private JLabel flagLabel;
+    
     public FlagViewer() {
         super("Flag Viewer");
 
         File f = new File("resources/flags");
         intFlagTotal = f.list().length - 1;
-
-        // THIS ISNT RIGHT. WE CAN ONLY POPULATE A COMBOBOX WITH AN ARRAY, NOT
-        // JLIST
+        flagLabel = new JLabel();
         
         linkNametoFile = new HashMap<String, String>();
 
@@ -48,7 +47,8 @@ public class FlagViewer extends JFrame {
                 JComboBox comboBox = (JComboBox) ae.getSource();
                 Object select = comboBox.getSelectedItem();
                 FlagName = select.toString();
-                // if select = flag, then display image of flag and its NAME
+                ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName));
+                flagLabel.setIcon(flagImage);
             }
         });
          
@@ -98,10 +98,10 @@ public class FlagViewer extends JFrame {
 
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
-
+        
         final JPanel flagImagePanel = new JPanel();
         flagImagePanel.add(new JLabel(FlagName));
-        // actual Flag Image
+        flagImagePanel.add(flagLabel);
 
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
