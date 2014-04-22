@@ -105,7 +105,6 @@ public class FlagViewer extends JFrame {
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
         
-        
         final JPanel flagImagePanel = new JPanel();
         flagImagePanel.setLayout(new BorderLayout());
         flagImagePanel.add(flagNameLabel, BorderLayout.NORTH);
