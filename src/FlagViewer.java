@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
@@ -16,8 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.JFrame;
 
 public class FlagViewer extends JFrame {
@@ -25,19 +24,21 @@ public class FlagViewer extends JFrame {
     private static final long serialVersionUID = 1L;
     private static String FlagName;
     private final JButton aboutButton; //, searchDropButton;
-    private final JTextField searchField;
     private JList<String> flagList;
+    
+    @SuppressWarnings("rawtypes")
     private JComboBox box;
-
+    
+    @SuppressWarnings({ "rawtypes" })
     public FlagViewer() {
         super("Flag Viewer");
-        searchField = new JTextField(10);
 
-        // Give FlagTotal a numerical Value for amount of images in Folder "Flags"
         File f = new File("resources/flags");
         intFlagTotal = f.list().length - 1;
         
-        flagList = new JList<String>(populateFlagList(f));
+        //THIS ISNT RIGHT. WE CAN ONLY POPULATE A COMBOBOX WITH AN ARRAY, NOT JLIST
+        flagList = new JList<String>(populateFlagList(f)); //MUST CHANGE
+        
         //ListSelectionListener
         box = new JComboBox();
         box.setEditable(true);
@@ -54,9 +55,10 @@ public class FlagViewer extends JFrame {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent ae) {
-                // Method for the About Message to Open
+                JOptionPane.showMessageDialog(null, "This Flag Viewer application was created by Eric Kong & Robert Kim." + "\nFun Fact #1: Eric Kong did about 80% of the work, while Bobby Kim did the remaining 20%");
             }
         });
+        
         /*
         searchDropButton = new JButton();
         try {
@@ -74,7 +76,6 @@ public class FlagViewer extends JFrame {
             }
         });
         */
-        
 
         final JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(2, 2));
@@ -84,19 +85,22 @@ public class FlagViewer extends JFrame {
         //inputPanel.add(new JLabel(""));
         //searchDropButton.setPreferredSize(new Dimension(40,40));
         inputPanel.add(new JLabel("Search:"));
-        inputPanel.add(searchField);
+        inputPanel.add(box);
         
         //inputPanel.add(searchDropButton);
         
-        
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
-
+        
+        final JPanel flagImagePanel = new JPanel();
+        flagImagePanel.add(new JLabel(FlagName));
+        //actual Flag Image
+        
         final Container mainPanel = getContentPane();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(inputPanel, BorderLayout.CENTER);
         mainPanel.add(aboutButtonPanel, BorderLayout.AFTER_LAST_LINE);
-       
+        mainPanel.add(flagImagePanel, BorderLayout.WEST);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
@@ -124,10 +128,6 @@ public class FlagViewer extends JFrame {
         return listModel;
     }
     
-    public static void aboutMessage(){
-        //Pop-Up message displaying about information.
-    }
-
     public static void main(String[] args) {
         new FlagViewer();
     }
