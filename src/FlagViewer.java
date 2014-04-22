@@ -90,7 +90,7 @@ public class FlagViewer extends JFrame {
         */
         
         final JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(2, 2));
+        inputPanel.setLayout(new BorderLayout());
 
         inputPanel.add(new JLabel("Total Flags:"));
         inputPanel.add(new JLabel(Integer.toString(intFlagTotal)));
