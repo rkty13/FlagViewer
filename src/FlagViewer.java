@@ -46,11 +46,7 @@ public class FlagViewer extends JFrame {
         
         //add array list to comboBox
         
-        box.getEditor().getEditorComponent().addKeyListener(new KeyAdapter() { public void keyReleased(KeyEvent e) { 
-            if(e.getKeyCode() != 38 && e.getKeyCode != 40 && e.getKeyCode != 10){
-                
-            }
-        });
+       
         
         /*
         box.addActionListener(new ActionListener() {
