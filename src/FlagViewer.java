@@ -43,6 +43,16 @@ public class FlagViewer extends JFrame {
         // ListSelectionListener
         box = new JComboBox();
         box.setEditable(true);
+        
+        //add array list to comboBox
+        
+        box.getEditor().getEditorComponent().addKeyListener(new KeyAdapter() { public void keyReleased(KeyEvent e) { 
+            if(e.getKeyCode() != 38 && e.getKeyCode != 40 && e.getKeyCode != 10){
+                
+            }
+        });
+        
+        /*
         box.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 JComboBox comboBox = (JComboBox) ae.getSource();
@@ -51,7 +61,7 @@ public class FlagViewer extends JFrame {
                 // if select = flag, then display image of flag and its NAME
             }
         });
-
+         */
         aboutButton = new JButton("About");
         aboutButton.addActionListener(new ActionListener() {
             @Override
