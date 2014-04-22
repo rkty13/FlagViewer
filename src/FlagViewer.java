@@ -43,11 +43,6 @@ public class FlagViewer extends JFrame {
         box = new JComboBox(flagList.toArray());
         box.setEditable(true);
         
-        //add array list to comboBox
-        
-       
-        
-        /*
         box.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 JComboBox comboBox = (JComboBox) ae.getSource();
@@ -56,7 +51,7 @@ public class FlagViewer extends JFrame {
                 // if select = flag, then display image of flag and its NAME
             }
         });
-         */
+         
         aboutButton = new JButton("About");
         aboutButton.addActionListener(new ActionListener() {
             @Override
