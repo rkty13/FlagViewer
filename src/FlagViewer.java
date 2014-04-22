@@ -145,6 +145,16 @@ public class FlagViewer extends JFrame {
         }
         return searchList;
     }
+    
+    public int searchFlagList(String flagName) {
+        for (int i = 0; i < flagList.size(); i++) {
+            String compare = flagList.get(i);
+            if (flagName.equalsIgnoreCase(compare)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
         new FlagViewer();
