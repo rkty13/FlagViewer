@@ -122,7 +122,7 @@ public class FlagViewer extends JFrame {
         File[] flags = f.listFiles();
         if (flags != null) {
             for (File flag : flags) {
-                String flagFile = flag.getName();
+                String flagFile = flag.getName().toLowerCase();
                 String origin = flag.getName();
                 if (flagFile.contains(".")) {
                     String[] seperated = flagFile.split("\\.");
