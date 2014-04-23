@@ -166,7 +166,8 @@ public class FlagViewer extends JFrame {
     }
     
     public void displayKR(){
-        
+        ImageIcon kr = new ImageIcon("resources/Kenneth-Rhee-Special.png");
+        JOptionPane.showMessageDialog(null, "","The Ken Rhee Special",JOptionPane.INFORMATION_MESSAGE ,kr);
     }
 
     public static void main(String[] args) {
