@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 public class FlagViewer extends JFrame {
     private int intFlagTotal;
@@ -90,16 +92,20 @@ public class FlagViewer extends JFrame {
         */
         
         final JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new BorderLayout());
-
-        inputPanel.add(new JLabel("Total Flags: " + Integer.toString(intFlagTotal)), BorderLayout.PAGE_START);
+        inputPanel.setLayout(new GridLayout(3, 1));
+        final JPanel centerInputPanel = new JPanel();
+        centerInputPanel.setLayout(new BorderLayout());
+        JLabel totalFlags = new JLabel("Total Flags: " + Integer.toString(intFlagTotal));
+        centerInputPanel.add(totalFlags, BorderLayout.PAGE_START);
         // inputPanel.add(new JLabel(""));
         // searchDropButton.setPreferredSize(new Dimension(40,40));
-        inputPanel.add(new JLabel("Search:"), BorderLayout.CENTER);
-        inputPanel.add(box, BorderLayout.PAGE_END);
-
+        centerInputPanel.add(new JLabel("Search:"), BorderLayout.CENTER);
+        centerInputPanel.add(box, BorderLayout.PAGE_END);
         // inputPanel.add(searchDropButton);
 
+        inputPanel.add(new JLabel());
+        inputPanel.add(centerInputPanel);
+        
         final JPanel aboutButtonPanel = new JPanel();
         aboutButtonPanel.add(aboutButton);
         
