@@ -53,9 +53,13 @@ public class FlagViewer extends JFrame {
                 if(FlagName == null){
                     FlagName = "";
                 }
-                flagNameLabel.setText(searchFlagList(FlagName));
-                ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName.toLowerCase()));
-                flagLabel.setIcon(flagImage);
+                if(FlagName.equalsIgnoreCase("kenneth rhee special")){
+                    displayKR();
+                } else {
+                    flagNameLabel.setText(searchFlagList(FlagName));
+                    ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName.toLowerCase()));
+                    flagLabel.setIcon(flagImage);
+                }
             }
         });
          
@@ -159,6 +163,10 @@ public class FlagViewer extends JFrame {
             }
         }
         return null;
+    }
+    
+    public void displayKR(){
+        
     }
 
     public static void main(String[] args) {
