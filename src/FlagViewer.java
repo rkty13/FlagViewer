@@ -122,7 +122,7 @@ public class FlagViewer extends JFrame {
         mainPanel.add(inputPanel, BorderLayout.CENTER);
         mainPanel.add(aboutButtonPanel, BorderLayout.SOUTH);
         
-
+        //setIconImage
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(325, 235));
         pack();
