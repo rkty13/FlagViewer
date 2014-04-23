@@ -57,7 +57,7 @@ public class FlagViewer extends JFrame {
                     displayKR();
                 } else {
                     flagNameLabel.setText(searchFlagList(FlagName));
-                    ImageIcon flagImage = new ImageIcon("resources/flags/" + linkNametoFile.get(FlagName.toLowerCase()));
+                    ImageIcon flagImage = getImageIcon("resources/flags/" + linkNametoFile.get(FlagName.toLowerCase()));
                     flagLabel.setIcon(flagImage);
                 }
             }
@@ -67,7 +67,7 @@ public class FlagViewer extends JFrame {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent ae) {
-                ImageIcon icon = new ImageIcon("resources/HydraIcon.jpg");
+                ImageIcon icon = getImageIcon("resources/HydraIcon.jpg");
                 JOptionPane
                         .showMessageDialog(
                                 null,
@@ -167,7 +167,7 @@ public class FlagViewer extends JFrame {
     }
     
     public void displayKR(){
-        ImageIcon kr = new ImageIcon("resources/Kenneth-Rhee-Special.png");
+        ImageIcon kr = getImageIcon("resources/Kenneth-Rhee-Special.png");
         JOptionPane.showMessageDialog(null, "","The Ken Rhee Special",JOptionPane.INFORMATION_MESSAGE ,kr);
     }
 
