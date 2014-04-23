@@ -2,9 +2,12 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -168,6 +171,25 @@ public class FlagViewer extends JFrame {
         JOptionPane.showMessageDialog(null, "","The Ken Rhee Special",JOptionPane.INFORMATION_MESSAGE ,kr);
     }
 
+    public static ImageIcon getImageIcon(final String filename) {
+        ImageIcon icon;
+        final URL url = FlagViewer.class.getResource(filename);
+        if (url != null) {
+            icon = new ImageIcon(url);
+        } else {
+            icon = new ImageIcon(filename);
+            
+            if ((icon == null) || (icon.getImageLoadStatus() != MediaTracker.COMPLETE)) {
+                try {
+                    icon = new ImageIcon(new URL(filename));
+                } catch (final MalformedURLException murle) {
+                    return null;
+                }
+            }
+        }
+        return icon;
+    }
+    
     public static void main(String[] args) {
         new FlagViewer();
     }
