@@ -68,7 +68,7 @@ public class FlagViewer extends JFrame {
                         .showMessageDialog(
                                 null,
                                 "This Flag Viewer application was created by Eric Kong & Robert Kim."
-                                        + "\nFun Fact #1: Eric Kong did about 78% of the work, while Bobby did the remaining 22%",
+                                        + "\nFun Fact #1: Eric Kong did about 70% of the work, while Bobby did the remaining 30%",
                                 "About", JOptionPane.INFORMATION_MESSAGE, icon);
             }
         });
