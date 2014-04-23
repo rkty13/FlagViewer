@@ -25,6 +25,7 @@ public class FlagViewer extends JFrame {
     private static String FlagName;
     private final JButton aboutButton; // , searchDropButton;
     private ArrayList<String> flagList;
+    @SuppressWarnings("rawtypes")
     private JComboBox box;
     private HashMap<String, String> linkNametoFile;
     private JLabel flagLabel, flagNameLabel;
@@ -39,8 +40,7 @@ public class FlagViewer extends JFrame {
         flagNameLabel = new JLabel();
         linkNametoFile = new HashMap<String, String>();
 
-        flagList = new ArrayList<String>(populateFlagList(f)); // MUST CHANGE
-        // ListSelectionListener
+        flagList = new ArrayList<String>(populateFlagList(f)); 
         
         box = new JComboBox(flagList.toArray());
         box.setEditable(true);
