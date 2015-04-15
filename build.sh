@@ -1,4 +1,4 @@
 #!/bin/sh
 rm -f *.class *.jar
-javac -sourcepath src -d bin src/FlagViewer.java
-jar -cfm FlagViewer.jar MainClass resources -C bin/ .
+javac -sourcepath src -d bin src/BriBorChat.java
+jar -cfm BBChat.jar MainClass resources -C bin/ .
